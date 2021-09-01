@@ -72,7 +72,42 @@ class LinkedList:
             new_node.next = n.next
             n.next = new_node
 
-    def search_item
+    def search_item(self, x):
+        if self.head is None:
+            print("List is empty.")
+            return
+
+        n = self.head
+
+        while n is not None:
+            if n.data == x:
+                print("Item found.")
+                return True
+            n = n.next
+
+        print("Item not found.")
+        return False
+
+    def delete_item(self, x):
+        if self.head is None:
+            print("List is empty.")
+            return
+
+        if self.head.data == x:
+            self.head = self.head.next
+            return
+
+        n = self.head
+        while n.next is not None:
+            if n.next.data == x:
+                break
+
+            n = n.next
+
+        if n.next is None:
+            print("Item not found.")
+        else:
+            n.next = n.next.next
 
 
 if __name__ == "__main__":
@@ -86,5 +121,9 @@ if __name__ == "__main__":
     llist.insert_after_item(4, 9)
     llist.insert_before_item(8, 6)
     llist.insert_before_item(2, 17)
+
+    llist.search_item(6)
+
+    llist.delete_item(8)
 
     llist.print_list()
