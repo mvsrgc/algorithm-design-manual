@@ -38,6 +38,15 @@ class BinarySearchTree:
         elif data > cur_node.data and cur_node.right:
             return self._find(data, cur_node.right)
 
+    def find_minimum(self):
+        if self.root:
+            tree_min = self.root
+            while tree_min.left:
+                tree_min = tree_min.left
+            return tree_min.data
+        else:
+            return None
+
 
 class Node:
     def __init__(self, data):
@@ -49,9 +58,13 @@ class Node:
 if __name__ == "__main__":
     tree = BinarySearchTree(22)
     tree.insert(12)
-    tree.insert(1)
+    tree.insert(35)
+    tree.insert(21)
+    tree.insert(4)
     tree.insert(45)
 
     print(tree.find(12))
     print(tree.find(1))
     print(tree.find(13))
+
+    print(tree.find_minimum())
