@@ -84,6 +84,8 @@ class BinarySearchTree:
                 parent.right = node.right
 
         # node has left and right child
+        # @todo
+
 
 class Node:
     def __init__(self, data):
@@ -104,6 +106,6 @@ if __name__ == "__main__":
     print(tree.find(1))
     print(tree.find(13))
 
-    tree.delete(21)
+    tree.delete(45)
 
     print(tree.find_minimum())
